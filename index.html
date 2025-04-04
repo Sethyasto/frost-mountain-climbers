@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FROST MOUNTAIN CLIMBERS - Professional Mountain Guides</title>
+    <meta name="description" content="Frost Mountain Climbers - Professional guided mountain climbing tours to Mount Kenya, Kilimanjaro, and other world-class peaks">
+    <meta name="keywords" content="mountain climbing, guided tours, Kilimanjaro, Mount Kenya, adventure">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="dark-mode.css" id="dark-mode-style" disabled>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <!-- Google Maps API will be loaded dynamically -->
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>FROST MOUNTAIN CLIMBERS</h1>
+                <p>Conquer the peaks with confidence</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href#gallery">Gallery</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#adventure">Adventure</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Mountain Climbing Adventure" class="hero-image">
+        <div class="hero-text">
+            <h2>Experience the Thrill of Mountain Climbing</h2>
+            <p>Join us for guided tours to the world's most breathtaking peaks.</p>
+            <a href="#adventure" class="cta-button">BOOK AN ADVENTURE</a>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Frost Mountain Climbers is a premier mountain guiding service with over 15 years of experience leading adventurers to some of the most spectacular summits around the world. Our team of certified guides prioritizes safety while ensuring an unforgettable climbing experience.</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-mountain"></i>
+                    <h3>50+ Peaks</h3>
+                    <p>We operate on mountains across 5 continents</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Certified Guides</h3>
+                    <p>All our guides are certified and experienced</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-heart"></i>
+                    <h3>Safety First</h3>
+                    <p>Your safety is our top priority</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="image-grid">
+                <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Climbing Mount Kenya" class="gallery-image">
+                <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Kilimanjaro Summit" class="gallery-image">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Guided Tour on Ngong Hills" class="gallery-image">
+                <img src="https://images.unsplash.com/photo-1470114716159-e389f8712fda?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Mount Elgon Base Camp" class="gallery-image">
+                <img src="https://images.unsplash.com/photo-1491555103944-7c647fd857e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Alpine Mountain Climbing" class="gallery-image">
+                <img src="https://images.unsplash.com/photo-1506535995048-638aa1b62b77?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Everest Expedition Team" class="gallery-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Map -->
+    <section id="locations" class="section">
+        <div class="container">
+            <h2>Our Climbing Locations</h2>
+            <div id="map"></div>
+            <div class="location-list">
+                <div class="location-card">
+                    <h3><i class="fas fa-mountain"></i> Mount Kenya</h3>
+                    <p>Africa's second highest peak (5,199m) with stunning glacial valleys and diverse wildlife. Perfect for technical climbs and scenic hikes.</p>
+                    <div class="difficulty">
+                        <span class="difficulty-label">Difficulty:</span>
+                        <span class="stars">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="location-card">
+                    <h3><i class="fas fa-mountain"></i> Kilimanjaro</h3>
+                    <p>Africa's highest free-standing mountain (5,895m). Our most popular climb with multiple route options for all skill levels.</p>
+                    <div class="difficulty">
+                        <span class="difficulty-label">Difficulty:</span>
+                        <span class="stars">★★★☆☆</span>
+                    </div>
+                </div>
+                <div class="location-card">
+                    <h3><i class="fas fa-mountain"></i> Ngong Hills</h3>
+                    <p>Beautiful ridge (2,460m) with panoramic views of Nairobi. Ideal for beginners and day hikes.</p>
+                    <div class="difficulty">
+                        <span class="difficulty-label">Difficulty:</span>
+                        <span class="stars">★☆☆☆☆</span>
+                    </div>
+                </div>
+                <div class="location-card">
+                    <h3><i class="fas fa-mountain"></i> Mount Elgon</h3>
+                    <p>Ancient volcano (4,321m) with the largest surface area in Africa. Features spectacular caves and waterfalls.</p>
+                    <div class="difficulty">
+                        <span class="difficulty-label">Difficulty:</span>
+                        <span class="stars">★★☆☆☆</span>
+                    </div>
+                </div>
+                <div class="location-card">
+                    <h3><i class="fas fa-mountain"></i> Alpine Mountains</h3>
+                    <p>Europe's most famous mountain range. We offer guided climbs in the Swiss, French, and Italian Alps.</p>
+                    <div class="difficulty">
+                        <span class="difficulty-label">Difficulty:</span>
+                        <span class="stars">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="location-card">
+                    <h3><i class="fas fa-mountain"></i> Mount Everest</h3>
+                    <p>The world's highest peak (8,848m). Our premium expedition with full support for experienced climbers.</p>
+                    <div class="difficulty">
+                        <span class="difficulty-label">Difficulty:</span>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adventure Booking -->
+    <section id="adventure" class="section">
+        <div class="container">
+            <h2>Book Your Adventure</h2>
+            <form id="booking-form">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Preferred Location:</label>
+                    <select id="location" name="location" required>
+                        <option value="">Select Location</option>
+                        <option value="Mount Kenya">Mount Kenya</option>
+                        <option value="Kilimanjaro">Kilimanjaro</option>
+                        <option value="Ngong Hills">Ngong Hills</option>
+                        <option value="Mount Elgon">Mount Elgon</option>
+                        <option value="Alpine Mountains">Alpine Mountains</option>
+                        <option value="Mount Everest">Mount Everest</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="experience">Experience Level:</label>
+                    <select id="experience" name="experience" required>
+                        <option value="">Select</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="participants">Number of Participants:</label>
+                    <input type="number" id="participants" name="participants" min="1" max="20" value="1" required>
+                </div>
+                <button type="submit" class="cta-button">Submit Booking</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial-container">
+                <div class="testimonial active">
+                    <p>"Summiting Kilimanjaro with Frost Mountain Climbers was the experience of a lifetime. The guides were incredibly knowledgeable about the mountain and kept us safe while making the journey fun. The food was amazing too!"</p>
+                    <div class="client-info">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Emily R.">
+                        <h4>- Emily R.</h4>
+                        <span>Kilimanjaro Expedition, 2024</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>"The Mount Kenya technical climb challenged me in the best possible way. Our guide's expertise gave me the confidence to push my limits safely. Can't wait to book my next adventure with this team!"</p>
+                    <div class="client-info">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jake M.">
+                        <h4>- Jake M.</h4>
+                        <span>Mount Kenya Climb, 2023</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>"As a first-time climber, I was nervous about the Ngong Hills hike, but our guide made sure everyone felt comfortable. The views were spectacular and I've caught the climbing bug thanks to this amazing introduction!"</p>
+                    <div class="client-info">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sarah K.">
+                        <h4>- Sarah K.</h4>
+                        <span>Ngong Hills Trek, 2024</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-nav">
+                <button class="testimonial-btn active" data-index="0"></button>
+                <button class="testimonial-btn" data-index="1"></button>
+                <button class="testimonial-btn" data-index="2"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p><i class="fas fa-envelope"></i> contact@frostclimbers.com</p>
+                    <p><i class="fas fa-phone"></i> +254 700 123456</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Mountain View, Nairobi, Kenya</p>
+                    <div class="business-hours">
+                        <h4>Office Hours:</h4>
+                        <p>Monday-Friday: 8:00 AM - 5:00 PM</p>
+                        <p>Saturday: 9:00 AM - 2:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="contact-name">Name:</label>
+                        <input type="text" id="contact-name" name="contact-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Email:</label>
+                        <input type="email" id="contact-email" name="contact-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>FROST MOUNTAIN CLIMBERS</h3>
+                    <p>Conquer the peaks with confidence</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#locations">Locations</a></li>
+                        <li><a href="#adventure">Book Adventure</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +254 700 123456</p>
+                    <p><i class="fas fa-envelope"></i> contact@frostclimbers.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Frost Mountain Climbers. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a> | 
+                    <a href="#">Terms of Service</a> | 
+                    <a href="#">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Animation -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Lightbox Container -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div class="lightbox-caption"></div>
+    </div>
+</body>
+</html>
